@@ -1,0 +1,23 @@
+Server/
+├── src/
+│   ├── server.ts
+│   ├── app.ts
+│   ├── config/
+│   │   └── database.ts
+│   ├── controllers/
+│   │   ├── bookController.ts
+│   │   └── borrowController.ts
+│   ├── models/
+│   │   ├── Book.ts
+│   │   └── Borrow.ts
+│   ├── routes/
+│   │   ├── bookRoutes.ts
+│   │   └── borrowRoutes.ts
+│   ├── middleware/
+│   │   ├── errorHandler.ts
+│   │   └── validation.ts
+│   └── types/
+│       └── index.ts
+├── package.json
+├── tsconfig.json
+└── .env

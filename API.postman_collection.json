@@ -1,0 +1,180 @@
+{
+  "info": {
+    "name": "Library Management System API",
+    "description": "API endpoints for Library Management System",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000/api",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/health",
+          "host": ["{{baseUrl}}"],
+          "path": ["health"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Books",
+      "item": [
+        {
+          "name": "Get All Books",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/books?page=1&limit=10",
+              "host": ["{{baseUrl}}"],
+              "path": ["books"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single Book",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/books/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["books", ":id"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create New Book",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"The Great Gatsby\",\n  \"author\": \"F. Scott Fitzgerald\",\n  \"genre\": \"Classic\",\n  \"isbn\": \"9780743273565\",\n  \"description\": \"A story of wealth, love, and the American Dream in the 1920s.\",\n  \"copies\": 5\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/books",
+              "host": ["{{baseUrl}}"],
+              "path": ["books"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Book",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"The Great Gatsby Updated\",\n  \"author\": \"F. Scott Fitzgerald\",\n  \"genre\": \"Classic Literature\",\n  \"isbn\": \"9780743273565\",\n  \"description\": \"A classic story of wealth, love, and the American Dream in the 1920s.\",\n  \"copies\": 3\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/books/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["books", ":id"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Book",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/books/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["books", ":id"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Borrow",
+      "item": [
+        {
+          "name": "Borrow a Book",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bookId\": \"650a9b8c1b4a9c001c8a7b1f\",\n  \"quantity\": 1,\n  \"dueDate\": \"2023-12-31\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/borrow",
+              "host": ["{{baseUrl}}"],
+              "path": ["borrow"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Borrow Summary",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/borrow/summary",
+              "host": ["{{baseUrl}}"],
+              "path": ["borrow", "summary"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Return a Book (Optional)",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/borrow/:borrowId",
+              "host": ["{{baseUrl}}"],
+              "path": ["borrow", ":borrowId"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
