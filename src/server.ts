@@ -7,18 +7,13 @@ dotenv.config();
 const PORT = process.env.PORT || 5000;
 
 // Connect to database
-if (process.env.NODE_ENV !== 'production') {
-  connectDB();
-} else {
-  // For production, connect immediately
-  connectDB();
-}
+connectDB();
 
 // Export for Vercel
 export default app;
 
 // Start server only if not in Vercel environment
-if (process.env.NODE_ENV !== 'production' || process.env.VERCEL !== '1') {
+if (process.env.NODE_ENV !== 'production') {
   app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
   });
