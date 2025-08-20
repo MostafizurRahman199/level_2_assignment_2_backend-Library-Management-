@@ -5,8 +5,11 @@
   "main": "dist/server.js",
   "scripts": {
     "dev": "nodemon --exec \"ts-node src/server.ts\"",
-    "dev2": "cd src && ts-node server.ts",
-    "dev3": "nodemon --watch src -e ts --exec \"ts-node src/server.ts\""
+    "start": "node dist/server.js",
+    "build": "tsc && npm run copy-files",
+    "copy-files": "cp -r src/types dist/ && cp -r src/config dist/ && cp -r src/middleware dist/",
+    "vercel-build": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -35,5 +38,8 @@
   "bugs": {
     "url": "https://github.com/MostafizurRahman199/level_2_assignment_2_backend-Library-Management-/issues"
   },
-  "homepage": "https://github.com/MostafizurRahman199/level_2_assignment_2_backend-Library-Management-#readme"
+  "homepage": "https://github.com/MostafizurRahman199/level_2_assignment_2_backend-Library-Management-#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }

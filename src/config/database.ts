@@ -10,9 +10,8 @@ const connectDB = async (): Promise<void> => {
     }
 
     const conn = await mongoose.connect(process.env.MONGODB_URI, {
-      // These are recommended options for Mongoose with MongoDB Atlas
-      serverSelectionTimeoutMS: 5000, // Timeout after 5s instead of 30s
-      socketTimeoutMS: 45000, // Close sockets after 45s of inactivity
+      serverSelectionTimeoutMS: 5000,
+      socketTimeoutMS: 45000,
     });
     
     console.log(`MongoDB Connected: ${conn.connection.host}`);
